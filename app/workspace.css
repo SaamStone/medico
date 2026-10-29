@@ -138,3 +138,7 @@
  .modal{padding:23px;border-radius:20px}.modal h2{font-size:23px}
 }
 @media(max-width:420px){.people-grid{grid-template-columns:1fr}.billing-plans{grid-template-columns:1fr}}
+
+/* Shared Vocalang inspired typography and warm surfaces for Medico app screens. */
+.workspace,.workspace button,.workspace input,.workspace select,.workspace textarea{font-family:'DM Sans','Noto Sans Telugu','Noto Sans Devanagari',ui-sans-serif,system-ui,sans-serif}
+.workspace h1,.workspace h2,.workspace h3,.workspace .metric-card>b,.workspace .blood-group,.workspace .billing-summary h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.03em}
