@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import PricingTable from '../../components/pricing-table';
+export default function Pricing(){return <main className="simple-page"><header className="nav wrap"><Link href="/" className="brand"><span className="logo logo-small">✚</span><span>medico</span></Link><div className="nav-actions"><Link className="sign-in" href="/">Home</Link><Link className="button button-small" href="/signup">Get started <span>↗</span></Link></div></header><section className="section wrap"><div className="section-heading centered"><div className="eyebrow">STRAIGHTFORWARD PLANS</div><h1>Care that fits<br/><em>your life.</em></h1><p>Start free. Upgrade when you need more room for your health story.</p></div><PricingTable/></section></main>}
