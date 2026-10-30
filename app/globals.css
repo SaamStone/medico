@@ -420,3 +420,25 @@ body{font-family:var(--font-body);background:#faf9f7;color:#1c1b19}
 .signin-back{position:absolute;left:clamp(20px,5vw,72px);bottom:25px;color:#696560;font-size:12px}
 @media(max-width:760px){.signin-page{padding:88px 18px 58px;justify-content:flex-start}.signin-brand{top:22px;left:20px}.signin-shell{max-width:520px;min-height:0;grid-template-columns:1fr;border-radius:25px}.signin-story{min-height:235px;padding:22px 24px 20px;border-right:0;border-bottom:1px solid rgba(255,255,255,.76)}.signin-story:after{width:180px;height:180px;top:30%;right:-65px;box-shadow:0 0 0 18px rgba(255,255,255,.13),0 0 0 38px rgba(255,255,255,.09)}.signin-story-top{font-size:9px}.signin-spark{width:30px;height:30px}.signin-story>div:nth-child(2){margin:17px 0}.signin-kicker{font-size:9px;margin-bottom:8px}.signin-story h1{font-size:clamp(34px,9vw,45px);margin-bottom:8px}.signin-story-copy{font-size:12px;line-height:1.55;max-width:330px}.signin-story-card{display:none}.signin-story-foot{font-size:8px}.signin-form-panel{max-width:none;padding:28px 24px 26px}.signin-form-heading{margin-bottom:23px}.signin-form-heading h2{font-size:37px}.signin-form-heading p{font-size:13px}.signin-back{left:22px;bottom:20px}}
 @media(max-width:380px){.signin-story-foot span:last-child{display:none}.signin-form-panel{padding-inline:19px}.signin-story{padding-inline:20px}}
+
+/* Align sign-in with Vocalang's archived split auth layout. */
+.signin-page{padding:88px 24px 46px;justify-content:center}
+.signin-brand{display:none}
+.signin-shell{width:min(100%,1152px);min-height:0;grid-template-columns:minmax(0,1fr) minmax(0,30rem);gap:clamp(30px,5vw,64px);overflow:visible;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none}
+.signin-story{min-height:42rem;padding:38px 40px 30px;border:1px solid rgba(255,255,255,.85);border-radius:32px;background:radial-gradient(ellipse 78% 58% at 20% 8%,rgba(255,255,255,.86),transparent 72%),linear-gradient(145deg,rgba(255,238,228,.9),rgba(239,232,240,.9) 58%,rgba(222,232,231,.88));box-shadow:0 22px 70px rgba(45,36,28,.07)}
+.signin-story-brand{position:relative;z-index:2;display:inline-flex;width:max-content;gap:9px;color:#1c1b19;font-family:var(--font-display);font-size:23px;font-weight:400;letter-spacing:-.04em}
+.signin-story-brand .logo{color:#8e3923}
+.signin-story>div:nth-child(3){margin:40px 0}
+.signin-story h1{font-size:clamp(52px,5vw,66px)}
+.signin-form-panel{max-width:none;padding:32px 34px;margin:auto;border:1px solid rgba(255,255,255,.95);border-radius:28px;background:rgba(255,254,252,.88);box-shadow:0 24px 70px rgba(45,36,28,.09);backdrop-filter:blur(22px)}
+.signin-form-heading{text-align:center;margin-bottom:25px}
+.signin-form-heading h2{font-size:36px}
+.signin-form-panel form{gap:9px}
+.signin-password-field{position:relative}
+.signin-password-field input{padding-right:64px!important}
+.signin-password-field button{position:absolute;top:50%;right:14px;transform:translateY(-50%);border:0;padding:5px 0;background:transparent;color:#696560;font:600 12px var(--font-body);cursor:pointer}
+.signin-password-field button:hover{color:#8e3923}
+.signin-form-panel form>.button{margin-top:5px}
+@media(max-width:920px){.signin-shell{grid-template-columns:minmax(0,1fr) minmax(0,27rem);gap:25px}.signin-story{padding-inline:30px}.signin-form-panel{padding-inline:25px}.signin-story h1{font-size:52px}}
+@media(max-width:760px){.signin-page{padding:82px 18px 58px}.signin-brand{display:inline-flex}.signin-shell{max-width:470px;grid-template-columns:1fr;gap:0}.signin-story{display:none}.signin-form-panel{padding:30px 27px 27px}}
+@media(max-width:380px){.signin-form-panel{padding:26px 20px 23px}}
