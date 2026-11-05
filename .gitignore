@@ -21,3 +21,7 @@ pnpm-debug.log*
 *.tsbuildinfo
 .DS_Store
 Thumbs.db
+
+# Playwright output
+/playwright-report/
+/test-results/

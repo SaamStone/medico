@@ -70,93 +70,254 @@
 .toast{background:#302f4e}
 
 
-/* Vocalang-inspired glass workspace surfaces */
-.workspace{
-  --ink:#211f1d;--muted:#726e69;--line:#e8e4df;
-  background:radial-gradient(ellipse 44% 34% at 74% 0%,rgba(247,222,222,.45),transparent 72%),radial-gradient(ellipse 30% 26% at 97% 3%,rgba(227,224,242,.4),transparent 75%),#f8f7f4;
-  color:var(--ink)
+/* Medico app surfaces: light, calm and consistent with the public site. */
+.workspace {
+  --ink: #414151;
+  --muted: #666779;
+  --line: #e7e7ef;
+  color: var(--ink);
+  background: #fff;
 }
-.ws-sidebar{
-  background:rgba(251,250,247,.76);border-right:1px solid rgba(255,255,255,.95);
-  backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);
-  box-shadow:8px 0 32px rgba(49,41,37,.035);padding:27px 16px 16px
+.ws-sidebar {
+  color: var(--ink);
+  background: #f5f4fb;
+  border-color: #e7e6f0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
-.ws-sidebar .brand{font-size:21px;color:#1d1b19}.ws-logo{color:#262320}
-.person-select{background:rgba(255,255,255,.72);border:1px solid #fff;border-radius:15px;box-shadow:0 8px 24px rgba(58,48,43,.045);padding:12px;margin:32px 0 26px}
-.avatar{background:#f1e2df;color:#8a5f56}.person-select small{font-size:9px;color:#817b75}.person-select b{font-size:13px;color:#292623}
-.ws-label{font-size:9px;letter-spacing:.14em;color:#8a837d;padding-bottom:10px}
-.ws-nav{gap:5px}.ws-nav a{height:44px;border-radius:13px;padding:0 12px;font-size:13px;color:#67615b;transition:background .18s,color .18s}
-.ws-nav a:hover{background:rgba(255,255,255,.75);color:#211f1d}.ws-nav a.selected{background:rgba(255,255,255,.9);color:#211f1d;font-weight:700;box-shadow:0 5px 18px rgba(49,41,37,.06)}
-.ws-icon{font-size:17px}.lock-tag{font-size:8px;border-radius:999px;background:#eee8ef;color:#7d6275;padding:4px 7px}
-.privacy-mini{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);border-radius:14px;padding:14px}.privacy-mini span{color:#8c716b}.privacy-mini p{font-size:11px;line-height:1.55;color:#716b65}
-.account-mini{border-color:rgba(218,211,205,.65)}.account-mini b{font-size:12px;color:#292623}.account-mini small{font-size:10px;color:#817a74}
-.ws-main{min-width:0}.ws-top{
-  height:70px;padding:0 38px;background:rgba(250,249,246,.76);border-bottom:1px solid rgba(255,255,255,.94);
-  backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);
-  box-shadow:0 7px 26px rgba(49,41,37,.035)
+.ws-sidebar .brand { color: var(--ink); }
+.ws-logo { color: var(--medico-accent, #6e6aa4); }
+.person-select { color: var(--ink); background: #eeedfa; border-color: #e2e0f1; }
+.person-select small, .ws-label, .demo-indicator { color: #68687b; }
+.person-select b, .ws-content, .welcome-row h1, .page-heading h1 { color: var(--ink); }
+.ws-nav a { color: #555568; }
+.ws-nav a:hover, .ws-nav a.selected { color: #56517f; background: #e8e6f5; }
+.ws-nav a.selected { font-weight: 700; }
+.lock-tag { color: #5d598e; background: #e8e6f5; }
+.privacy-mini { background: #edf4fb; border-color: #e2eaf3; }
+.privacy-mini p, .account-mini, .account-mini small { color: #5f6072; }
+.account-mini { border-color: #e7e7ef; }
+.ws-main, .ws-content, .ws-top { color: var(--ink); background: #fff; }
+.ws-top { border-color: #ececf2; backdrop-filter: none; }
+.metric-card, .panel, .person-card, .plan-card, .settings-panel {
+  color: var(--ink);
+  background: #fff;
+  border-color: #e7e7ef;
+  border-radius: 14px;
+  box-shadow: none;
+  backdrop-filter: none;
 }
-.breadcrumb{font-size:13px;color:#766f69}.breadcrumb span{color:#c2b9b2}
-.top-actions{gap:18px}.demo-indicator{font-size:11px;color:#79736d}.demo-indicator i{background:#c78372}
-.top-avatar{background:#f0e3df;color:#805d55;width:34px;height:34px}.sign-out{font:600 12px var(--font-body);color:#645e59}
-.ws-content{max-width:1320px;padding:44px 46px 70px}
-.welcome-row,.page-heading{margin-bottom:30px}.welcome-row h1,.page-heading h1{font:700 38px/1.12 Georgia,"Times New Roman",serif;letter-spacing:-.045em;color:#1e1c1a;margin:10px 0 9px}
-.welcome-row h1 span{font-size:24px;color:#a97265}.welcome-row p,.page-heading p{font-size:15px;line-height:1.7;color:#706b66}
-.workspace .eyebrow{font-size:10px;letter-spacing:.15em;color:#81746e}
-.workspace .button{font-size:13px;padding:13px 19px;border-radius:999px;background:#191816;box-shadow:0 8px 20px rgba(24,22,20,.11)}
-.metric-grid{gap:15px;margin:27px 0 21px}.metric-card,.panel,.person-card,.source-panel,.records-panel,.settings-panel,.plan-card{
-  background:rgba(255,255,255,.77);border:1px solid rgba(255,255,255,.98);border-radius:20px;
-  box-shadow:0 15px 42px rgba(55,45,40,.065);backdrop-filter:blur(18px)
+.metric-icon { display: none; }
+.metric-card small, .metric-card p, .panel-title p, .record-info small,
+.next-step small, .page-heading p { color: #666779; }
+.metric-card > b { color: #414151; font-variant-numeric: tabular-nums; }
+.button, .chat-compose button { color: #fff; background: #6e6aa4; border-radius: 9px; box-shadow: none; }
+.button:hover, .chat-compose button:hover { background: #5d598e; }
+.button-outline { color: #5d598e; background: #fff; border-color: #d8d6e8; }
+.button-outline:hover { color: #514d80; background: #f5f4fb; }
+.text-link, .panel-title a, .subtle-button, .next-step i { color: #5d598e; }
+.filter-pills button.on, .document-icon, .soft-tag, .status-chip {
+  color: #57537f;
+  background: #eeedfa;
 }
-.metric-card{padding:19px}.metric-icon{width:36px;height:36px;border-radius:12px;background:#f3e7e3;color:#976d64;font-size:17px}
-.metric-card small{font-size:10px;letter-spacing:.08em;color:#817a73}.metric-card>b{font:700 25px Georgia,"Times New Roman",serif;color:#24211f}.metric-card p{font-size:11px;color:#7b756f}
-.dashboard-grid{gap:18px}.panel{padding:22px}.panel-title h2,.source-panel h2{font:700 18px Georgia,"Times New Roman",serif;color:#272421}.panel-title p,.source-panel>p{font-size:12px;line-height:1.65;color:#79736d}.panel-title>a{font-size:12px;color:#514a45}
-.record-row-button{padding:14px 4px;border-color:#f0ece8}.record-row-button:hover{background:rgba(249,246,242,.72)}
-.document-icon,.next-step>span,.upgrade-icon{background:#f2e5e1;color:#94685e;border-radius:11px}.record-info b{font-size:13px;color:#292623}.record-info small{font-size:11px;color:#7e7771}.record-type,.soft-tag,.status-chip{font-size:10px;border-radius:999px;background:#f3f0ed;color:#716a64}
-.next-step b{font-size:12px}.next-step small{font-size:10px;color:#7c756f}.upgrade-banner{background:linear-gradient(110deg,rgba(249,233,227,.82),rgba(242,237,244,.78));border:1px solid #fff;border-radius:16px;padding:16px}
-.upgrade-banner b{font-size:12px}.upgrade-banner p{font-size:11px;color:#716a65}.upgrade-banner .text-link{font-size:11px;color:#403a36}
-.page-heading h1{font-size:36px}.records-panel{padding-inline:20px}.record-toolbar{padding:17px 0}.filter-pills button{font-size:11px;border-radius:999px}.filter-pills button.on{background:#f1e5e2;color:#75564e}.search-field{font-size:12px;border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.82);border-color:#eee9e4}
-.people-grid{gap:17px}.person-card{padding:21px}.person-card h2{font:700 19px Georgia,"Times New Roman",serif}.person-card>p{font-size:12px;color:#7b756f}.person-stats{font-size:10px;border-color:#f0ece8}.person-stats b{font-size:12px}.subtle-button{font-size:11px;border-radius:999px;background:rgba(255,255,255,.8);color:#393430;border-color:#e8e2dd}
-.blood-layout,.lab-grid,.ai-layout,.settings-grid{gap:18px}.blood-card,.trend-panel,.chat-panel,.source-panel,.settings-panel{border-radius:20px}.blood-group{font:700 58px Georgia,"Times New Roman",serif;color:#b95f5d}.blood-card>p,.toggle-row small{font-size:11px;color:#7c756f}.toggle-row b{font-size:12px}.lab-row b{font-size:12px}.lab-row small{font-size:10px}.lab-row>strong{font-size:14px}
-.chat-header{padding:17px 20px;border-color:#eee9e4}.chat-header b{font-size:13px}.chat-header small{font-size:10px}.chat-body{padding:22px}.chat-empty>b{font-size:13px}.chat-empty>p{font-size:11px}.suggestions button{font-size:11px;padding:11px 13px;border-radius:12px}.chat-message{border-radius:14px;background:rgba(245,241,238,.9)}.chat-message.you{background:#f4e6e2}.chat-message b{font-size:10px}.chat-message p{font-size:12px}.chat-compose{border-radius:999px;background:#fff}.chat-compose input{font-size:12px;padding:13px 16px}.chat-compose button{width:38px;border-radius:50%;background:#191816}.medical-disclaimer{font-size:10px}
-.source-item{border-color:#efebe6}.source-item b{font-size:11px}.source-item small{font-size:10px}.source-item>span{background:#f2e5e1;color:#91675e;border-radius:10px}
-.billing-summary h2{font:700 29px Georgia,"Times New Roman",serif}.billing-summary p{font-size:12px}.usage-meter>span{font-size:10px}.billing-plans{gap:14px}.billing-plans .plan-card{padding:20px 17px}.billing-plans .plan-name{font-size:16px}.billing-plans .price{font-size:27px}.billing-plans li{font-size:10px}.billing-plans .plan-button{font-size:11px}
-.settings-panel h2{font:700 18px Georgia,"Times New Roman",serif}.settings-panel>label{font-size:12px}.settings-panel>label small,.setting-line small{font-size:10px}.settings-panel>label input{height:42px;border-radius:11px}.setting-line b{font-size:11px}
-.modal-backdrop{background:rgba(40,34,31,.32);backdrop-filter:blur(5px)}.modal{border-radius:24px;padding:30px}.modal h2{font:700 26px Georgia,"Times New Roman",serif}.modal>p{font-size:13px;line-height:1.65}.field-label{font-size:11px}.field-label input,.field-label select{height:42px;border-radius:11px;font-size:12px}.dropzone{border-radius:16px;background:rgba(249,247,243,.85)}
-.toast{background:#24211f;border-radius:999px;font-size:12px}
-@media(max-width:1000px){.ws-content{padding:38px 30px 62px}.metric-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:720px){
- .workspace{background:radial-gradient(ellipse at 50% 0%,rgba(247,222,222,.52),transparent 46%),#f8f7f4}
- .ws-sidebar{background:rgba(250,249,246,.94);border-top:1px solid #fff;backdrop-filter:blur(22px);box-shadow:0 -8px 28px rgba(45,37,33,.07)}
- .ws-top{height:62px;padding:0 18px}.breadcrumb{font-size:11px}.top-actions{gap:10px}.demo-indicator{font-size:9px}.sign-out{font-size:10px}
- .ws-content{padding:28px 18px 84px}.welcome-row,.page-heading{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:23px}
- .welcome-row h1,.page-heading h1{font-size:31px}.welcome-row p,.page-heading p{font-size:13px}
- .metric-grid{gap:10px}.metric-card{padding:14px;border-radius:16px}.metric-card small{font-size:9px}.metric-card>b{font-size:21px}.metric-card p{font-size:10px}
- .dashboard-grid,.blood-layout,.lab-grid,.ai-layout,.settings-grid{grid-template-columns:1fr;gap:13px}.panel{padding:17px;border-radius:17px}.panel-title h2,.source-panel h2{font-size:16px}.panel-title p,.source-panel>p{font-size:11px}
- .record-info b{font-size:12px}.record-info small{font-size:10px}.privacy-mini{display:none}.account-mini{padding-top:8px}
- .people-grid{grid-template-columns:1fr 1fr;gap:10px}.person-card{padding:15px;border-radius:16px}.person-card h2{font-size:16px}.person-stats{font-size:9px}.records-panel{padding-inline:13px}.record-toolbar{align-items:stretch;flex-direction:column}.search-field{width:100%}
- .billing-summary{align-items:flex-start;flex-direction:column}.usage-meter{width:100%}.billing-plans{grid-template-columns:1fr 1fr}
- .modal{padding:23px;border-radius:20px}.modal h2{font-size:23px}
+.search-field, .chat-compose input { color: var(--ink); background: #fff; border-color: #dedee9; }
+.record-row-button { border-color: #ededf2; }
+.record-row-button:hover { background: #f8f8fc; }
+.upgrade-banner { background: #fff0e8; border-color: #f5e1d6; }
+.upgrade-icon, .avatar { color: #57537f; background: #eeedfa; }
+.add-person-card, .dropzone { color: #5d598e; background: #f8f7fc; border-color: #d8d6e8; }
+.blood-drop, .blood-chip { color: #9c6854; background: #fff0e8; }
+.chart-bars span { background: #c6c3e4; }
+.chart-bars span:nth-child(2n) { background: #b7cce1; }
+.ai-orb, .source-item > span { color: #57537f; background: #eeedfa; }
+.chat-header, .chat-message.assistant { background: #f8f8fc; }
+.chat-message.you { background: #eeedfa; }
+.locked-callout, .consent-callout { background: #edf4fb; border-color: #e0e9f2; }
+.upgrade-banner .upgrade-icon { color: #57537f; background: #eeedfa; }
+.billing-toggle button.active { color: #57537f; background: #eeedfa; }
+.plan-card.featured { border-color: #c9c5e2; background: #f8f7fc; }
+.recommended { color: #57537f; background: #eeedfa; }
+.modal { background: #fff; border-color: #e7e7ef; border-radius: 14px; }
+.toast { background: #57537f; }
+@media (max-width: 720px) {
+  .workspace { padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
+  .ws-sidebar {
+    height: calc(104px + env(safe-area-inset-bottom));
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: #fff;
+    border-top: 1px solid #e7e7ef;
+    box-shadow: 0 -5px 18px rgba(65, 65, 81, .05);
+  }
+  .ws-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 44px);
+    align-content: center;
+    justify-content: stretch;
+    gap: 0;
+  }
+  .ws-nav a {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 3px 2px;
+    justify-content: center;
+    gap: 1px;
+    border-radius: 8px;
+    color: #5c5d6f;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+  .ws-nav a.selected { color: #514d80; background: #f1f0fa; }
+  .ws-icon { font-size: 15px; }
+  .welcome-row .eyebrow { color: #666779; font-size: 10px; letter-spacing: .04em; }
 }
-@media(max-width:420px){.people-grid{grid-template-columns:1fr}.billing-plans{grid-template-columns:1fr}}
 
-/* Shared Vocalang inspired typography and warm surfaces for Medico app screens. */
-.workspace,.workspace button,.workspace input,.workspace select,.workspace textarea{font-family:'DM Sans','Noto Sans Telugu','Noto Sans Devanagari',ui-sans-serif,system-ui,sans-serif}
-.workspace h1,.workspace h2,.workspace h3,.workspace .metric-card>b,.workspace .blood-group,.workspace .billing-summary h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.03em}
+/* Medico × Pirsch reference: warm paper and precise hairline structure. */
+.workspace {
+  --ink: #272720;
+  --muted: #625f56;
+  --line: #cbc6b9;
+  color: var(--ink);
+  background: #f8f5ed;
+  font-family: var(--font-body);
+  font-feature-settings: 'ss03' 1, 'ss04' 1;
+}
+.ws-sidebar,
+.ws-main,
+.ws-content,
+.ws-top,
+.ws-sidebar .brand,
+.person-select,
+.privacy-mini,
+.account-mini { color: var(--ink); background: #f8f5ed; }
+.ws-sidebar { border-color: #cbc6b9; box-shadow: none; backdrop-filter: none; }
+.ws-top { border-color: #bcb6a9; box-shadow: none; backdrop-filter: none; }
+.person-select { border: 1px solid #928d7f; border-radius: 6px; }
+.person-select small,.ws-label,.demo-indicator,.account-mini small,.privacy-mini p,
+.metric-card small,.metric-card p,.panel-title p,.record-info small,.next-step small,
+.page-heading p,.record-row p { color: #625f56; }
+.ws-nav a { color: #625f56; border-radius: 999px; }
+.ws-nav a:hover { color: #272720; background: #efe9d9; }
+.ws-nav a.selected { color: #272720; background: #efe9d9; font-weight: 600; }
+.lock-tag,.privacy-mini,.locked-callout,.consent-callout {
+  color: #3f6572;
+  background: #e5edf0;
+  border-color: #b9c8cc;
+  backdrop-filter: none;
+}
+.account-mini { border-color: #cbc6b9; }
+.metric-card,.panel,.person-card,.plan-card,.settings-panel {
+  color: #272720;
+  background: #f8f5ed;
+  border: 1px solid #928d7f;
+  border-radius: 24px;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.metric-icon { display: none; }
+.metric-card > b { color: #272720; font-variant-numeric: tabular-nums; }
+.panel-title h2,.settings-panel h2,.page-heading h1,.welcome-row h1 { color: #272720; }
+.button,.chat-compose button {
+  color: #272720;
+  background: #ffda6e;
+  border: 1px solid #272720;
+  border-radius: 24px;
+  box-shadow: none;
+}
+.button:hover,.chat-compose button:hover { color: #272720; background: #f2c847; }
+.button-outline,.subtle-button {
+  color: #272720;
+  background: #f8f5ed;
+  border: 1px solid #928d7f;
+  border-radius: 24px;
+  box-shadow: none;
+}
+.button-outline:hover,.subtle-button:hover { background: #efe9d9; }
+.text-link,.panel-title a,.next-step i { color: #3f6572; }
+.filter-pills button { color: #625f56; border-radius: 999px; }
+.filter-pills button.on,.billing-toggle button.active {
+  color: #272720;
+  background: #efe9d9;
+  box-shadow: none;
+}
+.search-field,.chat-compose input,.auth-card input:not([type=checkbox]) {
+  color: #272720;
+  background: #f8f5ed;
+  border: 1px solid #928d7f;
+  border-radius: 6px;
+}
+.search-field:focus,.chat-compose input:focus { outline: 2px solid #272720; outline-offset: 2px; }
+.record-row-button,.next-step,.request-row,.lab-row { border-color: #cbc6b9; }
+.record-row-button:hover { background: #efe9d9; }
+.document-icon,.avatar,.avatar-large,.upgrade-icon,.ai-orb,.source-item > span {
+  color: #272720;
+  background: #e5edf0;
+  border-radius: 12px;
+}
+.record-type,.soft-tag,.status-chip {
+  color: #335d43;
+  background: #e4efe6;
+  border-radius: 999px;
+}
+.blood-drop,.blood-chip { color: #89443b; background: #f5e7e1; border-radius: 12px; }
+.lab-ok { color: #335d43; background: #e4efe6; border-radius: 999px; }
+.lab-review { color: #765317; background: #f7edcf; border-radius: 999px; }
+.chart-bars span,.chart-bars span:nth-child(2n) { background: #ffda6e; }
+.upgrade-banner {
+  color: #272720;
+  background: #fff0b5;
+  border: 1px solid #928d7f;
+  border-radius: 24px;
+}
+.add-person-card,.dropzone {
+  color: #3f6572;
+  background: #f8f5ed;
+  border: 1px dashed #928d7f;
+  border-radius: 24px;
+}
+.chat-header,.chat-message.assistant { background: #f1eee5; }
+.chat-message.you { color: #272720; background: #e5edf0; }
+.plan-card.featured { border-color: #272720; background: #fff9e8; }
+.recommended { color: #272720; background: #ffda6e; border: 1px solid #716d63; }
+.modal { color: #272720; background: #f8f5ed; border-color: #928d7f; border-radius: 24px; backdrop-filter: none; }
+.toast { color: #272720; background: #ffda6e; border: 1px solid #272720; border-radius: 12px; }
+.top-avatar { color: #272720; background: #e5edf0; }
+@media(max-width:720px) {
+  .ws-sidebar { background: #f8f5ed; border-top: 1px solid #bcb6a9; box-shadow: none; }
+  .ws-nav a.selected { color: #272720; background: #efe9d9; }
+}
 
-/* Account-linked family profiles and individual blood ID cards. */
-.profile-capacity{display:grid;grid-template-columns:minmax(150px,.6fr) minmax(240px,1.3fr) auto;align-items:center;gap:22px;margin:0 0 20px;padding:17px 21px;border-radius:18px}
-.profile-capacity>div:first-child .eyebrow{font-size:9px}.profile-capacity>div:first-child>b{display:block;margin-top:7px;color:#292623;font:400 25px Georgia,"Times New Roman",serif}.profile-capacity>div:first-child>b small{font:500 12px var(--font-body);color:#827a74}
-.profile-meter i{display:block;height:7px;overflow:hidden;border-radius:99px;background:rgba(96,83,72,.09)}.profile-meter i>b{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#a7c5ad,#718d74)}.profile-meter p{margin:8px 0 0;color:#77716c;font-size:11px;line-height:1.55}
-.profile-capacity .subtle-button{margin:0;white-space:nowrap}.add-person-locked{font-size:13px;background:linear-gradient(140deg,rgba(244,235,230,.8),rgba(238,234,245,.84));border-color:rgba(255,255,255,.9);color:#51463f;text-align:center}
-.blood-profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:18px;margin-bottom:20px}
-.blood-id-card{position:relative;isolation:isolate;overflow:hidden;min-height:254px;padding:21px 23px 17px;border:1px solid rgba(255,255,255,.96);border-radius:22px;background:radial-gradient(ellipse 80% 65% at 4% 0%,rgba(255,255,255,.86),transparent 73%),linear-gradient(135deg,rgba(255,239,232,.94),rgba(240,235,244,.93) 55%,rgba(226,240,235,.95));box-shadow:inset 0 1px rgba(255,255,255,.92),0 16px 42px rgba(57,43,39,.09);backdrop-filter:blur(22px)}
-.blood-id-card:after{content:"";position:absolute;z-index:-1;right:-55px;top:43px;width:190px;height:190px;border:1px solid rgba(255,255,255,.58);border-radius:50%;box-shadow:0 0 0 15px rgba(255,255,255,.13),0 0 0 33px rgba(255,255,255,.09);pointer-events:none}
-.blood-id-card:nth-child(3n+2){background:radial-gradient(ellipse 80% 65% at 4% 0%,rgba(255,255,255,.86),transparent 73%),linear-gradient(135deg,rgba(234,243,238,.96),rgba(231,239,244,.93) 55%,rgba(240,235,244,.94))}
-.blood-id-card:nth-child(3n){background:radial-gradient(ellipse 80% 65% at 4% 0%,rgba(255,255,255,.86),transparent 73%),linear-gradient(135deg,rgba(246,240,229,.96),rgba(245,231,232,.93) 55%,rgba(239,235,245,.94))}
-.blood-id-top{position:relative;z-index:1;display:flex;align-items:center;gap:10px}.blood-id-top>span:nth-child(2) b,.blood-id-top>span:nth-child(2) small{display:block}.blood-id-top>span:nth-child(2) b{font-size:11px;letter-spacing:.17em;color:#514943}.blood-id-top>span:nth-child(2) small{margin-top:3px;font-size:8px;letter-spacing:.11em;color:#847a73}.blood-id-mark{display:grid;place-items:center;width:35px;height:35px;border:1px solid rgba(255,255,255,.9);border-radius:11px;background:rgba(255,255,255,.57);color:#b15d5c;font-size:17px}.blood-id-status{margin-left:auto;padding:6px 9px;border:1px solid rgba(255,255,255,.8);border-radius:99px;background:rgba(255,255,255,.38);color:#766d68;font-size:8px;font-weight:700;letter-spacing:.1em}
-.blood-id-main{position:relative;z-index:1;display:grid;grid-template-columns:minmax(90px,.7fr) minmax(0,1.3fr);align-items:center;gap:14px;padding:19px 0 15px}.blood-id-main>div:first-child>small,.blood-person small{display:block;color:#817770;font-size:8px;letter-spacing:.1em}.blood-id-main>div:first-child>strong{display:block;margin-top:2px;color:#a94f50;font:400 55px/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.05em}.blood-id-main>div:first-child>select{width:105px;margin-top:9px;padding:8px;border:1px solid rgba(255,255,255,.95);border-radius:10px;background:rgba(255,255,255,.65);color:#654e49;font:600 12px var(--font-body)}.blood-person{align-self:end;padding-bottom:5px}.blood-person>b{display:block;margin-bottom:7px;color:#302b28;font:400 21px Georgia,"Times New Roman",serif}.blood-person small{margin-top:4px;letter-spacing:0;font-size:9px}
-.blood-id-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.82)}.blood-id-bottom>span small,.blood-id-bottom>span b{display:block}.blood-id-bottom>span small{color:#877d76;font-size:7px;letter-spacing:.1em}.blood-id-bottom>span b{margin-top:4px;color:#524a45;font-size:9px}.blood-edit{border:1px solid rgba(255,255,255,.9);border-radius:99px;padding:7px 10px;background:rgba(255,255,255,.52);color:#534b46;font:600 9px var(--font-body);cursor:pointer}.blood-edit:hover{background:rgba(255,255,255,.85)}
-.blood-donor-toggle{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px;color:#716963;font-size:9px}.blood-donor-toggle input{width:15px;height:15px;accent-color:#a45a52}.blood-requests-panel{margin-top:2px}
-.upgrade-plan-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 6px}.upgrade-plan-options>div{display:grid;gap:5px;padding:12px 10px;border:1px solid #ece6df;border-radius:12px;background:rgba(246,243,240,.75)}.upgrade-plan-options span{color:#837a73;font-size:10px}.upgrade-plan-options b{color:#3e3934;font-size:11px}.demo-only-note{margin:15px 0 0!important;text-align:center;font-size:10px!important}
-.profile-modal form{display:grid;gap:10px}.profile-modal form .field-label{margin-top:3px}
-@media(max-width:720px){.profile-capacity{grid-template-columns:1fr auto;gap:12px;padding:15px}.profile-meter{grid-column:1/-1;grid-row:2}.blood-profile-grid{grid-template-columns:1fr;gap:13px}.blood-id-card{min-height:240px;padding:19px}.upgrade-plan-options{gap:6px}.upgrade-plan-options>div{padding:10px 8px}}
+/* Live-preview refinements for the dashboard shell. */
+.workspace .ws-logo,
+.workspace .ws-sidebar .brand-mark,
+.workspace .ws-sidebar .brand { color: #272720; }
+.workspace .ws-sidebar .brand-mark { background: #f8f5ed; border-color: #716d63; }
+.workspace .welcome-row h1,
+.workspace .page-heading h1 { font-size: 24px; line-height: 1.3; letter-spacing: -.02em; }
+.workspace .welcome-row p,
+.workspace .page-heading p,
+.workspace .record-info small,
+.workspace .next-step small,
+.workspace .privacy-mini p,
+.workspace .account-mini small { color: #625f56; }
+.workspace .document-icon {
+  width: 20px;
+  height: 20px;
+  color: #625f56;
+  background: transparent;
+  border-radius: 0;
+  font-size: 15px;
+}
+.workspace .next-step > span {
+  width: 20px;
+  height: 20px;
+  color: #625f56;
+  background: transparent;
+  border-radius: 0;
+}
+.workspace .account-mini .avatar,
+.workspace .person-select .avatar,
+.workspace .top-avatar { color: #272720; background: #e5edf0; }
+
+.workspace .upgrade-icon { color: #272720; background: #f8f5ed; }
